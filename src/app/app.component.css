@@ -1,0 +1,15 @@
+.input {
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm;
+}
+
+.card-area {
+    @apply grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+}
+
+.is-first {
+    @apply block bg-slate-500
+}
+
+.is-last {
+    @apply block bg-gray-500
+}

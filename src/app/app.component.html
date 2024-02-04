@@ -1,2 +1,27 @@
-<h1>{{data.title}}</h1>
-<input type="text" [value]="data.title" (keyup)="onKeyUp(titleInput.value)" #titleInput>
+<div class="container">
+    <div class="p-6 mx-auto max-w-lg">
+        <h1 class="p-2">{{data.title}}</h1>
+        <input type="text" class="input" [value]="data.title" (keyup)="onKeyUp(titleInput.value)" #titleInput>
+    </div>
+
+
+    <div class="card-area">
+        @for(course of coreCourse; track course.id; let index =$index; let count =$count; let first=$first; let
+        last=$last;let even=$even; let odd=$odd ){
+        <div class="border p-2">
+            <h3>Count {{count}}</h3>
+            <h3>first {{first}}</h3>
+            <h3>last {{last}}</h3>
+            <h3>even {{even}}</h3>
+            <h3>odd {{odd}}</h3>
+            <app-card [class.is-first]="first" [class.is-last]="last" (courseSelected)="onCourseSelected($event)"
+                [course]="course" [index]="index" [count]="count" [isFirst]="first"></app-card>
+        </div>
+        }
+        @empty{
+        <h2 class="text-2xl text-center bg-slate-300 p-4 w-full">Kurs Bulunamadı!</h2>
+        }
+
+
+    </div>
+</div>
