@@ -10,5 +10,11 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular17';
+  data = {
+    title: 'angular17'
+  }
+  onKeyUp(newTitle: string) {
+    this.data.title = newTitle
+  }
+
 }
