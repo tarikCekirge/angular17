@@ -28,4 +28,8 @@ export class AppComponent {
     console.log('carda tıklandı', course)
   }
 
+  trackCourse(index: number, course: Course) {
+    return course.id
+  }
+
 }

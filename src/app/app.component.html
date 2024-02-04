@@ -6,7 +6,7 @@
 
 
     <div class="card-area">
-        @for(course of coreCourse; track course.id; let index =$index; let count =$count; let first=$first; let
+        @for(course of coreCourse; track $index; let count =$count; let first=$first; let
         last=$last;let even=$even; let odd=$odd ){
         <div class="border p-2">
             <h3>Count {{count}}</h3>
@@ -15,7 +15,7 @@
             <h3>even {{even}}</h3>
             <h3>odd {{odd}}</h3>
             <app-card [class.is-first]="first" [class.is-last]="last" (courseSelected)="onCourseSelected($event)"
-                [course]="course" [index]="index" [count]="count" [isFirst]="first"></app-card>
+                [course]="course" [index]="$index" [count]="count" [isFirst]="first"></app-card>
         </div>
         }
         @empty{

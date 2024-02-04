@@ -7,9 +7,9 @@
 }
 
 .is-first {
-    @apply block bg-slate-500
+    @apply block bg-slate-500;
 }
 
 .is-last {
-    @apply block bg-gray-500
+    @apply block bg-gray-500;
 }
