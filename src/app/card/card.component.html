@@ -48,7 +48,8 @@
             class=" px-3 py-2 bg-slate-700 text-white rounded-full w-full text-center font-bold">Get
             Started</button>
     </div>
-    <div class="px-6 pt-4 pb-2">
+
+    <!-- <div class="px-6 pt-4 pb-2">
         @switch (course.category) {
         @case ("BEGINNER") {
         <span
@@ -72,6 +73,20 @@
         }
 
         }
+
+    </div> -->
+
+
+    <div class="px-6 pt-4 pb-2" [ngSwitch]="course.category">
+        <span *ngSwitchCase="'INTERMEDIATE'"
+            class="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{course.category}}</span>
+        <span *ngSwitchCase="'ADVANCED'"
+            class="inline-block bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{course.category}}</span>
+        <span *ngSwitchCase="'BEGINNER'"
+            class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{course.category}}</span>
+        <span *ngSwitchDefault
+            class="inline-block bg-gray-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">All
+            Levels</span>
 
     </div>
 
