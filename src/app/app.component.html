@@ -1,8 +1,5 @@
 <div class="container">
-    <div class="p-6 mx-auto max-w-lg">
-        <h1 class="p-2">{{data.title}}</h1>
-        <input type="text" class="input" [value]="data.title" (keyup)="onKeyUp(titleInput.value)" #titleInput>
-    </div>
+    <button (click)="onCoursesEdited()">Edit Courses</button>
     <div class="card-area" #container>
 
         <!-- <app-card
@@ -10,7 +7,8 @@
             [class.is-first]="first" [class.is-last]="last" (courseSelected)="onCourseSelected($event)"
             [course]="course" [index]="count" [count]="count" [isFirst]="first"></app-card> -->
 
-        <app-card #cardRef (courseSelected)="onCourseSelected($event)" [course]="coreCourse[0]"></app-card>
+        <app-card *ngFor="let course of coreCourse" (courseSelected)="onCourseSelected($event)"
+            [course]="course"></app-card>
 
 
 

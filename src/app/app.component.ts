@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CardComponent } from './card/card.component';
@@ -14,6 +14,7 @@ import { Course } from './model/course';
 })
 export class AppComponent implements AfterViewInit {
 
+
   data = {
     title: 'angular17'
   }
@@ -22,10 +23,10 @@ export class AppComponent implements AfterViewInit {
 
   // @ViewChild(CardComponent) card!: CardComponent;
   @ViewChild('cardRef', { read: ElementRef }) cardRef!: ElementRef;
+  @ViewChild('courseImage') courseImage!: ElementRef;
 
-  @ViewChild('courseImage') courseImage!: ElementRef
+  @ViewChildren(CardComponent, { read: ElementRef }) cards!: QueryList<CardComponent>;
 
-  // https://github.com/angular-university/angular-course
   onKeyUp(newTitle: string) {
     this.data.title = newTitle
   }
@@ -37,15 +38,26 @@ export class AppComponent implements AfterViewInit {
   trackCourse(index: number, course: Course) {
     return course.id
   }
-
-  startDate = new Date(2000, 0, 1)
-  price = 23.12312312312;
-
-  constructor() {
-  }
   ngAfterViewInit() {
-    console.log("courseImage:  ", this.courseImage);
-    this.coreCourse[0].description = "Test1"
+    // this.cards.changes.subscribe(
+    //   cards => console.log(cards)
+    // )
+    console.log("Cards: ", this.cards)
 
   }
+
+
+  onCoursesEdited() {
+    this.coreCourse.push(
+      {
+        id: 1,
+        description: "Angular Core Deep Dive",
+        iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-core-in-depth-small.png',
+        longDescription: "A detailed walk-through of the most important part of Angular - the Core and Common modules",
+        lessonsCount: 10,
+        category: 'INTERMEDIATE'
+      }
+    )
+  }
+
 }
