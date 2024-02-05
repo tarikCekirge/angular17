@@ -1,5 +1,15 @@
 <div class="max-w-md rounded overflow-hidden shadow-lg">
+    @if(course.id===1){
+    <h2 class="font-bold text-xl mb-2">Birinci Kurs</h2>
+    }
+    @else if(course.iconUrl){
     <img class="w-full" [src]="course.iconUrl" [alt]="course.description">
+
+    }
+    @else {
+    <h2 class="font-bold text-xl mb-2">İmaj Bulunamadı</h2>
+    }
+
     <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">{{index}}-{{course.description}}</div>
         <p class="text-gray-700 text-base line-clamp-4">
