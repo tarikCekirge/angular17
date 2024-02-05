@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Course } from '../model/course';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
@@ -18,5 +19,9 @@ export class CardComponent {
   onCourseViewed() {
     console.log('click');
     this.courseEmitter.emit(this.course);
+  }
+
+  isImagaVisible() {
+    return this.course && this.course.iconUrl
   }
 }
