@@ -37,4 +37,8 @@ export class CardComponent {
   //     'beginner': this.course.category == 'BEGINNER'
   //   }
   // }
+
+  cardStyles() {
+    return { 'text-decoration': 'underline' }
+  }
 }
