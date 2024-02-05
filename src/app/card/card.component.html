@@ -33,7 +33,8 @@
 
 <ng-container *ngIf="course">
     <div class="course-card" [ngClass]="cardClasses()">
-        <img class="w-full" [src]="course.iconUrl" [alt]="course.description" *ngIf="isImagaVisible() else noImage ">
+        <img #courseImage class="w-full" [src]="course.iconUrl" [alt]="course.description"
+            *ngIf="isImagaVisible() else noImage ">
         <ng-template #noImage>
             <p class="font-bold text-center">Görsel Bulunamadı</p>
         </ng-template>

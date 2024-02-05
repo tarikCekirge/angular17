@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CardComponent } from './card/card.component';
@@ -12,7 +12,8 @@ import { Course } from './model/course';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+
   data = {
     title: 'angular17'
   }
@@ -22,7 +23,7 @@ export class AppComponent {
   // @ViewChild(CardComponent) card!: CardComponent;
   @ViewChild('cardRef', { read: ElementRef }) cardRef!: ElementRef;
 
-  @ViewChild('container') container!: ElementRef
+  @ViewChild('courseImage') courseImage!: ElementRef
 
   // https://github.com/angular-university/angular-course
   onKeyUp(newTitle: string) {
@@ -39,4 +40,12 @@ export class AppComponent {
 
   startDate = new Date(2000, 0, 1)
   price = 23.12312312312;
+
+  constructor() {
+  }
+  ngAfterViewInit() {
+    console.log("courseImage:  ", this.courseImage);
+    this.coreCourse[0].description = "Test1"
+
+  }
 }
