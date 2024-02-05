@@ -38,7 +38,7 @@
             <p class="font-bold text-center">Görsel Bulunamadı</p>
         </ng-template>
         <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2" [ngStyle]="cardStyles()">{{index}}-{{course.description}}
+            <div class="font-bold text-xl mb-2" [ngStyle]="cardStyles()">{{index ||''}} {{course.description}}
             </div>
             <p class="text-gray-700 text-base line-clamp-4">
                 {{course.longDescription}}

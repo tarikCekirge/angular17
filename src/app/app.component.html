@@ -3,39 +3,16 @@
         <h1 class="p-2">{{data.title}}</h1>
         <input type="text" class="input" [value]="data.title" (keyup)="onKeyUp(titleInput.value)" #titleInput>
     </div>
+    <div class="card-area" #container>
 
-    <!-- <pre>
-        {{coreCourse | json}}
-    </pre> -->
+        <!-- <app-card
+            *ngFor="let course of coreCourse;trackBy:trackCourse; let count = index; let first = first; let last = last; let even = even; let odd = odd"
+            [class.is-first]="first" [class.is-last]="last" (courseSelected)="onCourseSelected($event)"
+            [course]="course" [index]="count" [count]="count" [isFirst]="first"></app-card> -->
 
-    <div *ngFor="let pair of coreCourse | keyvalue">{{pair.key+': '+pair.value}}</div>
-
-    <div class="container">
-        <div>
-            Start Date: {{startDate | date:'MMM/dd/YYYY'}}
-        </div>
-        <div>
-            Price: {{price | currency:"TRY":"₺":"4.2-2"}}
-        </div>
-    </div>
+        <app-card #cardRef (courseSelected)="onCourseSelected($event)" [course]="coreCourse[0]"></app-card>
 
 
-    <div class="card-area">
-        @for(course of coreCourse | slice:0:2; track $index; let count =$count; let first=$first; let
-        last=$last;let even=$even; let odd=$odd ){
-        <div class="border p-2">
-            <h3>Count {{count}}</h3>
-            <h3>first {{first}}</h3>
-            <h3>last {{last}}</h3>
-            <h3>even {{even}}</h3>
-            <h3>odd {{odd}}</h3>
-            <app-card [class.is-first]="first" [class.is-last]="last" (courseSelected)="onCourseSelected($event)"
-                [course]="course" [index]="$index" [count]="count" [isFirst]="first"></app-card>
-        </div>
-        }
-        @empty{
-        <h2 class="text-2xl text-center bg-slate-300 p-4 w-full">Kurs Bulunamadı!</h2>
-        }
 
 
     </div>

@@ -10,10 +10,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-  @Input({ required: true }) course!: Course;
-  @Input({ required: true }) index!: number;
-  @Input({ required: true }) count!: number;
-  @Input({ required: true }) isFirst!: boolean;
+  @Input() course!: Course;
+  @Input() index!: number;
+  @Input() count!: number;
+  @Input() isFirst!: boolean;
   @Output('courseSelected') courseEmitter = new EventEmitter<Course>()
 
   onCourseViewed() {

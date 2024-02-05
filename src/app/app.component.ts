@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CardComponent } from './card/card.component';
@@ -19,13 +19,18 @@ export class AppComponent {
   // coreCourse = COURSES
   coreCourse = [...COURSES]
 
+  // @ViewChild(CardComponent) card!: CardComponent;
+  @ViewChild('cardRef', { read: ElementRef }) cardRef!: ElementRef;
+
+  @ViewChild('container') container!: ElementRef
+
   // https://github.com/angular-university/angular-course
   onKeyUp(newTitle: string) {
     this.data.title = newTitle
   }
 
   onCourseSelected(course: Course) {
-    console.log('carda tıklandı', course)
+    console.log("Cntainer Div: ", this.cardRef)
   }
 
   trackCourse(index: number, course: Course) {
