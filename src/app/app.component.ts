@@ -32,4 +32,6 @@ export class AppComponent {
     return course.id
   }
 
+  startDate = new Date(2000, 0, 1)
+  price = 23.12312312312;
 }

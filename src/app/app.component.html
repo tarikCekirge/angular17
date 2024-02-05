@@ -4,9 +4,24 @@
         <input type="text" class="input" [value]="data.title" (keyup)="onKeyUp(titleInput.value)" #titleInput>
     </div>
 
+    <!-- <pre>
+        {{coreCourse | json}}
+    </pre> -->
+
+    <div *ngFor="let pair of coreCourse | keyvalue">{{pair.key+': '+pair.value}}</div>
+
+    <div class="container">
+        <div>
+            Start Date: {{startDate | date:'MMM/dd/YYYY'}}
+        </div>
+        <div>
+            Price: {{price | currency:"TRY":"₺":"4.2-2"}}
+        </div>
+    </div>
+
 
     <div class="card-area">
-        @for(course of coreCourse; track $index; let count =$count; let first=$first; let
+        @for(course of coreCourse | slice:0:2; track $index; let count =$count; let first=$first; let
         last=$last;let even=$even; let odd=$odd ){
         <div class="border p-2">
             <h3>Count {{count}}</h3>
