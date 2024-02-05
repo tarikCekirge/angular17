@@ -24,4 +24,17 @@ export class CardComponent {
   isImagaVisible() {
     return this.course && this.course.iconUrl
   }
+
+  cardClasses() {
+    if (this.course.category === 'BEGINNER') {
+      return 'beginner';
+    }
+    return
+  }
+
+  // cardClasses() {
+  //   return {
+  //     'beginner': this.course.category == 'BEGINNER'
+  //   }
+  // }
 }

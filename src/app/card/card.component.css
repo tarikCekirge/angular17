@@ -1,0 +1,7 @@
+.course-card {
+    @apply max-w-md rounded overflow-hidden shadow-lg;
+}
+
+.course-card.beginner {
+    @apply bg-orange-600
+}
