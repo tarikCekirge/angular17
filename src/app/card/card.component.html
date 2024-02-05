@@ -49,8 +49,30 @@
             Started</button>
     </div>
     <div class="px-6 pt-4 pb-2">
+        @switch (course.category) {
+        @case ("BEGINNER") {
         <span
-            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{course.category}}</span>
+            class="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{course.category}}</span>
+
+        }
+        @case ("INTERMEDIATE") {
+        <span
+            class="inline-block bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{course.category}}</span>
+
+        }
+        @case ("ADVANCED") {
+        <span
+            class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{course.category}}</span>
+
+        }
+        @default {
+        <span
+            class="inline-block bg-gray-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{course.category}}</span>
+
+        }
+
+        }
+
     </div>
 
 </div>
